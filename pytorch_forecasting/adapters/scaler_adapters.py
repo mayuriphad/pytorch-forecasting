@@ -198,7 +198,7 @@ class ScalerAdapter:
             col = t[:, idx]
             col = sub.fit_transform(col, X) if sub.fit_per_sequence else col
             columns.append(col.unsqueeze(-1))
-        
+
         res = torch.cat(columns, dim=-1)
         if _to_tensor(data).ndim == 1 and res.ndim == 2 and res.shape[-1] == 1:
             res = res.squeeze(-1)
@@ -235,7 +235,7 @@ class ScalerAdapter:
             col = t[:, idx]
             col = sub.transform(col, X) if sub.fit_per_sequence else col
             columns.append(col.unsqueeze(-1))
-            
+
         res = torch.cat(columns, dim=-1)
         if _to_tensor(data).ndim == 1 and res.ndim == 2 and res.shape[-1] == 1:
             res = res.squeeze(-1)
