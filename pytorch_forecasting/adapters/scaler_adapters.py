@@ -221,9 +221,7 @@ class ScalerAdapter:
         """
         if not self.is_multi:
             return (
-                self.transform(data, X)
-                if self.fit_per_sequence
-                else _to_tensor(data)
+                self.transform(data, X) if self.fit_per_sequence else _to_tensor(data)
             )
 
         t = _to_tensor(data)
